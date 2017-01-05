@@ -65,9 +65,11 @@
         <script src="xdk/init-dev.js"></script>
         <!-- normalizes device and document ready events, see file for details -->
 <style>
+    *{
+        margin: 0;
+    }
     body{
-        background-image: url(imagens/fundo_app.jpg);
-        background-repeat: no-repeat;
+        background: #636ab4;
     }
     
     td{
@@ -78,9 +80,6 @@
         src: url(LibreBaskerville-Regular.ttf);
     }
    
-    .menu{
-        color: #fff;
-    }
   
     .black{
         width: 85%;
@@ -89,54 +88,38 @@
     }
     .empresa{
         padding-top: 20px;
+    } 
+    table{
+        background: #636ab4;
     }
-    .negrito{
-        font-weight: bold;
+    .text-white{
+        color: #fff;
     }
- 
-    
+    .posicao{
+        color: #fff;
+    }
     
 </style>
     
     </head>
 
     <body ng-controller="procon">
-    <ul id="slide-out" class="side-nav card-panel light-blue darken-3 transparente">
-        <li>
-            <div class="userView">
-            <div class="background">
-                <img src="imagens/procon.PNG" width="300">
-            </div>
-                  <br>
-                <br>
-                <br>
-            </div>
-        </li>
-        <li><a href="http://sistemas.procon.sp.gov.br/reclamacao_fundamentada/?ano=2015"><p class="menu">Reclamações Fundamentadas 2015</p></a></li>
-        <li><a href="http://sistemas.procon.sp.gov.br/reclamacao_fundamentada/?ano=2014"><p class="menu">Reclamações Fundamentadas 2014</p></a></li>
-        <li><a href="http://sistemas.procon.sp.gov.br/reclamacao_fundamentada/?ano=201"><p class="menu">Reclamações Fundamentadas 2014</p></a></li>
-        <li><a href="#!"><p class="menu">Avalie o Aplicativo</p></a></li>
-        <li><div class="divider"></div></li>
-        <li><a class="subheader"><p class="menu">Gráfico</p></a></li>
         
-      </ul>
-  <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
-        
-        <img src="imagens/fundo.jpeg" class="img-responsive center-block">
+        <img src="imagens/procon.png" class="img-responsive center-block">
         <p class="text-right card-panel black"> RECLAMAÇÕES DO MÊS DE {{data |  date:'MMMM' | uppercase}}</p>
       
             <div class="card" >
                   
             <table class="table table-highlight" width=80% height=20%>
                 <tr class="card-panel light-blue darken-4">
-                    <th class="text-center menu negrito">Posição</th>
-                    <th class="text-center menu">Empresa</th>
-                    <th class="text-center menu">Reclamações</th>
+                    <th class="text-center menu text-white">Posição</th>
+                    <th class="text-center menu text-white">Empresas</th>
+                    <th class="text-center menu text-white">Reclamações</th>
                 </tr>
                 <tr class="item item-divider" ng-repeat="listas in lista">
-                    <td width=30 ><h4 class="text-center text-success">{{$index + 1}}</h4></td>
-                    <td width=30><h6 class="text-primary text-center empresa">{{listas.empresa | uppercase }}</h6></td>
-                    <td width=30><h4 class="text-center text-danger">{{listas.id}}{{listas.qtde}}</h4></td> 
+                    <td width=30 ><h4 class="text-center posicao">{{$index + 1}}</h4></td>
+                    <td width=30><h6 class="text-center empresa">{{listas.empresa | uppercase }}</h6></td>
+                    <td width=30><h4 class="text-center">{{listas.id}}{{listas.qtde}}</h4></td> 
                    
                 </tr>
             </table>
